@@ -1,8 +1,9 @@
 @use "variables" as 	var;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 * {
 	box-sizing: border-box;
-	font-family: "Nunito";
+	font-family: "Nunito", sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -17,9 +18,7 @@ html {
 }
 
 // Utilities
-.small{
-	font-size: 0.7rem;
-}
+
 .container {
 	margin: 0 15%;
 }
@@ -176,6 +175,9 @@ a {
 	}
 	.grid-1-1-1-1-1 {
 		grid-template-columns: 1fr;
+	}
+	.small {
+		font-size: 0.7rem;
 	}
 }
 
