@@ -1,0 +1,55 @@
+@use "../../styles/variables" as var;
+
+.Home {
+	margin-bottom: 5rem;
+	.news {
+		background: var.$white;
+		margin: 2rem 1rem 2rem 0;
+		padding: 2rem;
+		border-radius: 1rem;
+	}
+
+	.statistics {
+		background: var.$white;
+		margin: 2rem 0 2rem 1rem;
+		padding: 2rem;
+		border-radius: 1rem;
+		.data {
+			.head-row {
+				font-weight: 700;
+			}
+			.col {
+				margin: 0.2rem 0.3rem;
+			}
+		}
+	}
+	.slot-avail {
+		background: var.$white;
+		margin: 2rem 0 2rem 1rem;
+		padding: 2rem;
+		border-radius: 1rem;
+	}
+	.guidelines {
+		background: var.$white;
+		margin: 0 0 2rem 0;
+		padding: 2rem;
+		border-radius: 1rem;
+		.title {
+			font-size: 1.2em;
+			font-weight: 500;
+			margin: 0.7rem 0 0.7rem 0;
+		}
+	}
+	.plasma {
+		background: var.$white;
+		margin: 0 1rem 2rem 0;
+		padding: 2rem;
+		border-radius: 1rem;
+	}
+	.resources {
+		background: var.$white;
+		margin: 0 0 2rem 1rem;
+		padding: 2rem;
+		border-radius: 1rem;
+	}
+}

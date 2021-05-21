@@ -1,0 +1,27 @@
+@use "../../styles/variables" as var;
+
+.NavBar {
+	.container {
+		padding: 1rem 3rem;
+		border-bottom-left-radius: 1rem;
+		border-bottom-right-radius: 1rem;
+		background: var.$white;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: var.$accent;
+		a {
+			color: var.$accent;
+		}
+		.about {
+			cursor: pointer;
+		}
+		.center {
+			span {
+				font-weight: 700;
+				font-size: 1.25rem;
+				margin-right: 0.4rem;
+			}
+		}
+	}
+}

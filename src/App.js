@@ -1,16 +1,17 @@
 import React from "react";
-import "./App.css";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// Importing Pages
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+
+// Importing Pages
 import Home from "./pages/Home";
 import Plasma from "./pages/Plasma";
 import SlotAvailability from "./pages/SlotAvailability";
 import News from "./pages/News";
 import Statistics from "./pages/Statistics";
-import Resources from "./pages/Resources/Resources";
+import Resources from "./pages/Resources/";
 
 const App = () => {
 	return (
@@ -25,6 +26,7 @@ const App = () => {
 					<Route path="/statistics" exact component={Statistics} />
 					<Route path="/resources" exact component={Resources} />
 				</Switch>
+				<Footer />
 			</Router>
 		</div>
 	);
