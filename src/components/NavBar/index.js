@@ -26,7 +26,9 @@ const NavBar = () => {
 					<span>Covid Toolkit</span>
 					<RiVirusFill size={28} />
 				</div>
-				<div className="about">About</div>
+				<div className="about">
+					<Link to="/about">About</Link>
+				</div>
 			</div>
 		</div>
 	);

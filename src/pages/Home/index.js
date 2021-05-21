@@ -61,13 +61,13 @@ const Home = () => {
 								</div>
 							</div>
 							<div className="data">
-								<div className="grid grid-1-1-1-1 head-row">
+								<div className="grid w-grid-1-1-1-1 head-row">
 									<div className="col">Name</div>
 									<div className="col">C</div>
 									<div className="col">R</div>
 									<div className="col">D</div>
 								</div>
-								<div className="grid grid-1-1-1-1">
+								<div className="grid small w-grid-1-1-1-1">
 									<div className="col">World</div>
 									<div className="col">
 										{stats ? stats.total_cases : 0}

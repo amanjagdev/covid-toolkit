@@ -129,3 +129,17 @@
 	background-color: var.$accent;
 	width: 6px;
 }
+
+@media only screen and (max-width: 600px) {
+	.Plasma {
+		.main {
+			grid-template-columns: 1fr !important;
+		}
+		.description {
+			margin: 1rem 1rem !important;
+		}
+		.plasma-submit {
+			margin-top: 80px;
+		}
+	}
+}

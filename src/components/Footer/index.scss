@@ -25,3 +25,10 @@
 		justify-content: center;
 	}
 }
+
+@media only screen and (max-width: 600px) {
+	.Footer {
+		margin: 0 8% !important;
+		width: 84% !important;
+	}
+}

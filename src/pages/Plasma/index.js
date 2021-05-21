@@ -17,12 +17,15 @@ const Plasma = () => {
 			contact !== "" &&
 			address !== ""
 		) {
-			setResults(...results, {
-				name,
-				bloodGroup,
-				phone: contact,
-				address,
-			});
+			setResults([
+				...results,
+				{
+					name,
+					bloodGroup,
+					phone: contact,
+					address,
+				},
+			]);
 			db.collection("donors").add({
 				name,
 				bloodGroup,

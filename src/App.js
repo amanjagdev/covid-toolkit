@@ -12,6 +12,7 @@ import SlotAvailability from "./pages/SlotAvailability";
 import News from "./pages/News";
 import Statistics from "./pages/Statistics";
 import Resources from "./pages/Resources/";
+import About from "./pages/About";
 
 const App = () => {
 	return (
@@ -21,6 +22,7 @@ const App = () => {
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/plasma" exact component={Plasma} />
+					<Route path="/about" exact component={About} />
 					<Route path="/slot" exact component={SlotAvailability} />
 					<Route path="/news" exact component={News} />
 					<Route path="/statistics" exact component={Statistics} />

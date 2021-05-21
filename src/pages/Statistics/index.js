@@ -21,12 +21,12 @@ const Statistics = () => {
 				<div className="spacer"></div>
 			</div>
 			<div className="data">
-				<div className="grid grid-1-1-1-1-1 head-row">
+				<div className="grid small w-grid-1-1-1-1-1 head-row">
 					<div className="col">Confirmed</div>
 					<div className="col">Recovered</div>
 					<div className="col">Deaths</div>
 				</div>
-				<div className="grid grid-1-1-1-1-1">
+				<div className="grid small w-grid-1-1-1-1-1">
 					<div className="col">{global?.TotalConfirmed}</div>
 					<div className="col">{global?.TotalRecovered}</div>
 					<div className="col">{global?.TotalDeaths}</div>
@@ -39,7 +39,7 @@ const Statistics = () => {
 				<div className="spacer"></div>
 			</div>
 			<div className="data">
-				<div className="grid grid-1-1-1-1-1 head-row">
+				<div className="grid small w-grid-1-1-1-1-1 head-row">
 					<div className="col">Name</div>
 					<div className="col">Country Code</div>
 					<div className="col">Confirmed</div>
@@ -56,7 +56,7 @@ const Statistics = () => {
 							TotalDeaths,
 							TotalRecovered,
 						}) => (
-							<div className="grid grid-1-1-1-1-1" key={ID}>
+							<div className="grid small w-grid-1-1-1-1-1" key={ID}>
 								<div className="col">{Country}</div>
 								<div className="col">{CountryCode}</div>
 								<div className="col">{TotalConfirmed}</div>
