@@ -11,7 +11,7 @@ const Footer = () => {
 					<AiFillHeart size={18} />
 				</span>
 				by &nbsp;
-				<a href="https://amanjagdev.now.sh"> Aman Jagdev</a>
+				<a target="_blank" rel="noreferrer" href="https://amanjagdev.now.sh"> Aman Jagdev</a>
 			</span>
 		</div>
 	);

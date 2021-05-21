@@ -10,7 +10,7 @@ const ResourceCard = ({ name, desc, link }) => {
 
 			<div className="content">
 				<div className="description">{desc}</div>
-				<a href={link} alt={name}>
+				<a target="_blank" rel="noreferrer" href={link} alt={name}>
 					<BiLink size={22} />
 				</a>
 			</div>

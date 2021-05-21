@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { FaChevronDown, FaExternalLinkAlt } from "react-icons/fa";
 import NewsCard from "../../components/NewsCard";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 const Home = () => {
+	const [stats, setStats] = useState(null);
+	const [articles, setArticles] = useState(null);
+
+	useEffect(() => {
+		Axios.get(
+			"https://newsapi.org/v2/everything?q=covid&sortBy=publishedAt&apiKey=4f4ce39feb7246a3b14fa52bf63a2cf4&pageSize=100&page=1"
+		).then(({ data }) => {
+			setArticles(data.articles);
+		});
+		Axios.get(
+			"https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats"
+		).then(({ data }) => {
+			setStats({
+				total_cases: data.data.total_cases,
+				recovery_cases: data.data.recovery_cases,
+				death_cases: data.data.death_cases,
+			});
+		});
+	}, []);
+
 	return (
 		<div className="Home">
 			<div className="container">
@@ -19,8 +40,17 @@ const Home = () => {
 									</Link>
 								</div>
 							</div>
-							<NewsCard />
-							<NewsCard />
+							{articles ? (
+								<>
+									<NewsCard {...articles[0]} />
+									<NewsCard {...articles[1]} />
+								</>
+							) : (
+								<>
+									<NewsCard />
+									<NewsCard />
+								</>
+							)}
 						</div>
 					</div>
 					<div className="col">
@@ -42,9 +72,15 @@ const Home = () => {
 								</div>
 								<div className="grid grid-1-1-1-1">
 									<div className="col">World</div>
-									<div className="col">145,104,448</div>
-									<div className="col">123,127,222</div>
-									<div className="col">3,079,493</div>
+									<div className="col">
+										{stats ? stats.total_cases : 0}
+									</div>
+									<div className="col">
+										{stats ? stats.recovery_cases : 0}
+									</div>
+									<div className="col">
+										{stats ? stats.death_cases : 0}
+									</div>
 								</div>
 							</div>
 						</div>

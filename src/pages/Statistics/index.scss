@@ -1,8 +1,16 @@
 @use "../../styles/variables" as var;
 
 .Statistics {
-	margin-top: 2rem ;
+	margin-top: 2rem;
 	background: var.$white;
 	padding: 2rem;
 	border-radius: 1rem;
+	.data {
+		margin-bottom: 2rem;
+	}
+	.head-row {
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+	margin-bottom: 5rem;
 }

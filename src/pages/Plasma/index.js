@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { PLASMA_DATA } from "../../data";
+import Axios from "axios";
 
 const Plasma = () => {
 	const [name, setName] = useState("");
@@ -12,22 +13,33 @@ const Plasma = () => {
 	const [results, setResults] = useState(PLASMA_DATA);
 
 	const handleSubmit = () => {
-		// Axios.post(
-		// 	`${process.env.REACT_APP_API_URL}/donor/signup`,
-		// 	{ name, bloodGroup, phone: contact, age, address },
-		// 	{
-		// 		headers: {
-		// 			Authorization: "Bearer " + token,
-		// 		},
-		// 	}
-		// )
-		// 	.then((res) => {
-		// 		setResults([...results, res.data]);
-		// 	})
-		// 	.catch((err) => {
-		// 		console.error(err);
-		// 	});
+		Axios.post(
+			`${process.env.REACT_APP_API_URL}/donor/signup`,
+			{ name, bloodGroup, phone: contact, age, address },
+			// {
+			// 	headers: {
+			// 		// Authorization: "Bearer " + token,
+			// 	},
+			// }
+		)
+			.then((res) => {
+				setResults([...results, res.data]);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	};
+
+	// useEffect(() => {
+	// 	Axios.get(`${process.env.REACT_APP_API_URL}/donor`)
+	// 		.then((res) => {
+	// 			console.log(res.data);
+	// 			setResults(res.data);
+	// 		})
+	// 		.catch((err) => {
+	// 			console.error(err);
+	// 		});
+	// }, []);
 
 	return (
 		<div className="Plasma container bs">

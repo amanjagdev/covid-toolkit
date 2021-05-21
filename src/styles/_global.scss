@@ -45,6 +45,12 @@ html {
 .grid-1-1-1-1 {
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+.grid-1-1-1 {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.grid-1-1-1-1-1 {
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
 
 input:not(.date-pick) {
 	padding: 10px;

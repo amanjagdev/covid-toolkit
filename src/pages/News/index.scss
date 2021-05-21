@@ -1,8 +1,9 @@
 @use "../../styles/variables" as var;
 
 .News {
-	margin-top: 2rem ;
+	margin-top: 2rem;
 	background: var.$white;
 	padding: 2rem;
 	border-radius: 1rem;
+	margin-bottom: 5rem;
 }

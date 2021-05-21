@@ -3,22 +3,14 @@ import "./index.scss";
 
 import { BiLink } from "react-icons/bi";
 
-const NewsCard = () => {
+const NewsCard = ({ title, description, url }) => {
 	return (
 		<div className="NewsCard">
-			<div className="title">
-				Mit Feldspieler Pérez im Tor: River Plate trotzt
-				Corona-Umständen in der Copa Libertadores
-			</div>
+			<div className="title">{title}</div>
 
 			<div className="content">
-				<div className="description">
-					Wegen zahlreicher Corona-Infizierter im Kader hat der
-					argentinische Erstligist River Plate einen Feldspieler ins
-					Tor gestellt. Beim Gruppenspiel in der Copa Libertadores
-					gegen den kolumbianischen Vere [...]
-				</div>
-				<a href="https://someurl">
+				<div className="description">{description}</div>
+				<a target="_blank" rel="noreferrer" href={url} alt={title}>
 					<BiLink size={22} />
 				</a>
 			</div>

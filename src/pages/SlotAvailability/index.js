@@ -6,7 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const SlotAvailability = () => {
-	const [pincode, setPincode] = useState("249408");
+	const [pincode, setPincode] = useState("249401");
 	const [date, setDate] = useState(new Date());
 	const [results, setResults] = useState(null);
 
@@ -39,62 +39,6 @@ const SlotAvailability = () => {
 				voluptate repellat possimus.
 			</div>
 			<div className="main">
-				<div className="plasma-info">
-					<h3>Slots Info</h3>
-					<div className="scroll-view">
-						<div className="cards">
-							{results &&
-								results.map(
-									({
-										name,
-										address,
-										center_id,
-										min_age_limit,
-										block_name,
-										vaccine,
-										slots,
-										fee,
-										available_capacity,
-									}) => (
-										<div className="card" key={center_id}>
-											<p className="name grid grid-1-1">
-												<strong>Name : </strong>
-												{name}
-											</p>
-											<p className="contact grid grid-1-1">
-												<strong>Min Age Limit :</strong>{" "}
-												{min_age_limit}
-											</p>
-											<p className="address grid grid-1-1">
-												<strong>Address :</strong>{" "}
-												{address}
-											</p>
-											<p className="block grid grid-1-1">
-												<strong>Block :</strong>{" "}
-												{block_name}
-											</p>
-											<p className="capacity grid grid-1-1">
-												<strong>Capacity :</strong>{" "}
-												{available_capacity}
-											</p>
-											<p className="fee grid grid-1-1">
-												<strong>Fee :</strong> ₹{fee}
-											</p>
-											<p className="vaccine grid grid-1-1">
-												<strong>Vaccine :</strong>{" "}
-												{vaccine}
-											</p>
-											<p className="slots grid grid-1-1">
-												<strong>Slots :</strong>{" "}
-												{slots &&
-													slots.map((s) => `${s} `)}
-											</p>
-										</div>
-									)
-								)}
-						</div>
-					</div>
-				</div>
 				<div className="plasma-submit">
 					<h3>Find Slots</h3>
 					<div className="plasma-form">
@@ -105,6 +49,7 @@ const SlotAvailability = () => {
 							value={pincode}
 							onChange={(e) => setPincode(e.target.value)}
 						/>
+						<label htmlFor="pincode">Date</label>
 						<div className="date-pick">
 							<DatePicker
 								selected={date}
@@ -116,6 +61,75 @@ const SlotAvailability = () => {
 							onClick={() => handleSubmit()}>
 							Get Slots
 						</button>
+					</div>
+				</div>
+				<div className="plasma-info">
+					<h3>Slots Info</h3>
+					<div className="scroll-view">
+						<div className="cards">
+							{results &&
+								(results.length === 0 ? (
+									<div className="card">
+										<p>No Slots Available </p>
+									</div>
+								) : (
+									results.map(
+										({
+											name,
+											address,
+											center_id,
+											min_age_limit,
+											block_name,
+											vaccine,
+											slots,
+											fee,
+											available_capacity,
+										}) => (
+											<div
+												className="card"
+												key={center_id}>
+												<p className="name grid grid-1-1">
+													<strong>Name : </strong>
+													{name}
+												</p>
+												<p className="contact grid grid-1-1">
+													<strong>
+														Min Age Limit :
+													</strong>{" "}
+													{min_age_limit}
+												</p>
+												<p className="address grid grid-1-1">
+													<strong>Address :</strong>{" "}
+													{address}
+												</p>
+												<p className="block grid grid-1-1">
+													<strong>Block :</strong>{" "}
+													{block_name}
+												</p>
+												<p className="capacity grid grid-1-1">
+													<strong>Capacity :</strong>{" "}
+													{available_capacity}
+												</p>
+												<p className="fee grid grid-1-1">
+													<strong>Fee :</strong> ₹
+													{fee}
+												</p>
+												<p className="vaccine grid grid-1-1">
+													<strong>Vaccine :</strong>{" "}
+													{vaccine}
+												</p>
+												<p className="slots grid grid-1-1">
+													<strong>Slots :</strong>{" "}
+													{slots &&
+														slots.map(
+															(s) => `${s} `
+														)}
+												</p>
+											</div>
+										)
+									)
+								))}
+						</div>
 					</div>
 				</div>
 			</div>
