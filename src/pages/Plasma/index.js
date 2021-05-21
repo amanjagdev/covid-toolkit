@@ -1,26 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
-import { PLASMA_DATA } from "../../data";
+import { db } from "../../utils/firebase";
 
 const Plasma = () => {
 	const [name, setName] = useState("");
 	const [bloodGroup, setBloodGroup] = useState("B+");
 	const [contact, setContact] = useState("");
 	const [address, setAddress] = useState("");
-	const [age, setAge] = useState(0);
 
-	const [results, setResults] = useState(PLASMA_DATA);
+	const [results, setResults] = useState(null);
 
 	const handleSubmit = () => {
 		if (
-			name === "" ||
-			bloodGroup === "" ||
-			contact === "" ||
-			address === "" ||
-			age === ""
-		)
-			setResults(...results, { name, bloodGroup, contact, address, age });
+			name !== "" &&
+			bloodGroup !== "" &&
+			contact !== "" &&
+			address !== ""
+		) {
+			setResults(...results, {
+				name,
+				bloodGroup,
+				phone: contact,
+				address,
+			});
+			db.collection("donors").add({
+				name,
+				bloodGroup,
+				phone: contact,
+				address,
+			});
+		}
 	};
+
+	useEffect(() => {
+		db.collection("donors")
+			.get()
+			.then((querySnapshot) => {
+				let allDonors = [];
+				querySnapshot.forEach((doc) => allDonors.push(doc.data()));
+				return allDonors;
+			})
+			.then((allDonors) => setResults(allDonors))
+			.catch((error) => {
+				console.log("Error getting documents: ", error);
+			});
+	}, []);
 
 	return (
 		<div className="Plasma container bs">
@@ -38,14 +62,17 @@ const Plasma = () => {
 					<h3>Plasma Info</h3>
 					<div className="scroll-view">
 						<div className="cards">
-							{results &&
+							{results ? (
 								results.map(
-									(
-										{ name, address, phone, bloodGroup },
-										index
-									) => (
+									({
+										name,
+										address,
+										phone,
+										bloodGroup,
+										id,
+									}) => (
 										<div className="card">
-											<h4 className="bg" key={index}>
+											<h4 className="bg" key={id}>
 												{bloodGroup}
 											</h4>
 											<div className="content">
@@ -61,7 +88,10 @@ const Plasma = () => {
 											</div>
 										</div>
 									)
-								)}
+								)
+							) : (
+								<div className="loader" />
+							)}
 						</div>
 					</div>
 				</div>
@@ -96,13 +126,7 @@ const Plasma = () => {
 							value={contact}
 							onChange={(e) => setContact(e.target.value)}
 						/>
-						<label htmlFor="age">Age</label>
-						<input
-							type="number"
-							id="age"
-							value={age}
-							onChange={(e) => setAge(e.target.value)}
-						/>
+
 						<label htmlFor="address">Address</label>
 						<input
 							type="text"
