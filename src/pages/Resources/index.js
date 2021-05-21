@@ -7,13 +7,20 @@ const Resources = () => {
 		<div className="Resources container bs">
 			<div className="head">
 				<div className="heading">Resources</div>
-				<div className="link-to-page"></div>
+				<div className="spacer"></div>
 			</div>
 			<div className="cards">
 				{COVID_RESOURCES.map((item, index) => (
 					<ResourceCard key={index} {...item} />
 				))}
 			</div>
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href="https://www.covidresourcesindia.com/"
+				className="all">
+				More Resources
+			</a>
 		</div>
 	);
 };

@@ -1,8 +1,18 @@
 @use "../../styles/variables" as var;
 
 .Resources {
-	margin-top: 2rem ;
+	margin-top: 2rem;
 	background: var.$white;
 	padding: 2rem;
 	border-radius: 1rem;
+	margin-bottom: 5rem;
+	.all {
+		margin: 2rem 0 0 0;
+		font-weight: 500;
+		font-size: 1.2rem;
+		display: block;
+	}
+	.all:hover {
+		color: var.$accent;
+	}
 }

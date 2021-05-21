@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import { PLASMA_DATA } from "../../data";
-import Axios from "axios";
 
 const Plasma = () => {
 	const [name, setName] = useState("");
@@ -13,33 +12,15 @@ const Plasma = () => {
 	const [results, setResults] = useState(PLASMA_DATA);
 
 	const handleSubmit = () => {
-		Axios.post(
-			`${process.env.REACT_APP_API_URL}/donor/signup`,
-			{ name, bloodGroup, phone: contact, age, address },
-			// {
-			// 	headers: {
-			// 		// Authorization: "Bearer " + token,
-			// 	},
-			// }
+		if (
+			name === "" ||
+			bloodGroup === "" ||
+			contact === "" ||
+			address === "" ||
+			age === ""
 		)
-			.then((res) => {
-				setResults([...results, res.data]);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
+			setResults(...results, { name, bloodGroup, contact, address, age });
 	};
-
-	// useEffect(() => {
-	// 	Axios.get(`${process.env.REACT_APP_API_URL}/donor`)
-	// 		.then((res) => {
-	// 			console.log(res.data);
-	// 			setResults(res.data);
-	// 		})
-	// 		.catch((err) => {
-	// 			console.error(err);
-	// 		});
-	// }, []);
 
 	return (
 		<div className="Plasma container bs">
@@ -48,9 +29,9 @@ const Plasma = () => {
 				<div className="spacer"></div>
 			</div>
 			<div className="description">
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
-				dignissimos beatae, nobis minima voluptatum veniam cum iusto
-				voluptate repellat possimus.
+				Plasma has been instrumental in helping COVID-19
+				patients.Fingthe plasma leads for your respective cities from
+				the below information.
 			</div>
 			<div className="main">
 				<div className="plasma-info">
@@ -59,15 +40,12 @@ const Plasma = () => {
 						<div className="cards">
 							{results &&
 								results.map(
-									({
-										name,
-										address,
-										_id,
-										phone,
-										bloodGroup,
-									}) => (
+									(
+										{ name, address, phone, bloodGroup },
+										index
+									) => (
 										<div className="card">
-											<h4 className="bg" key={_id}>
+											<h4 className="bg" key={index}>
 												{bloodGroup}
 											</h4>
 											<div className="content">

@@ -46,23 +46,27 @@ const Statistics = () => {
 					<div className="col">Recovered</div>
 					<div className="col">Deaths</div>
 				</div>
-				{countires?.map(
-					({
-						ID,
-						Country,
-						CountryCode,
-						TotalConfirmed,
-						TotalDeaths,
-						TotalRecovered,
-					}) => (
-						<div className="grid grid-1-1-1-1-1" key={ID}>
-							<div className="col">{Country}</div>
-							<div className="col">{CountryCode}</div>
-							<div className="col">{TotalConfirmed}</div>
-							<div className="col">{TotalRecovered}</div>
-							<div className="col">{TotalDeaths}</div>
-						</div>
+				{countires ? (
+					countires.map(
+						({
+							ID,
+							Country,
+							CountryCode,
+							TotalConfirmed,
+							TotalDeaths,
+							TotalRecovered,
+						}) => (
+							<div className="grid grid-1-1-1-1-1" key={ID}>
+								<div className="col">{Country}</div>
+								<div className="col">{CountryCode}</div>
+								<div className="col">{TotalConfirmed}</div>
+								<div className="col">{TotalRecovered}</div>
+								<div className="col">{TotalDeaths}</div>
+							</div>
+						)
 					)
+				) : (
+					<div className="loader" />
 				)}
 			</div>
 		</div>

@@ -51,6 +51,23 @@ html {
 .grid-1-1-1-1-1 {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+.loader {
+	border: 0.7rem solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 0.7rem solid var.$accent;
+	width: 5rem;
+	height: 5rem;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 2s linear infinite;
+}
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 
 input:not(.date-pick) {
 	padding: 10px;

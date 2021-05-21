@@ -23,8 +23,11 @@ const News = () => {
 				<div className="link-to-page"></div>
 			</div>
 			<div className="cards">
-				{articles &&
-					articles.map((article) => <NewsCard {...article} />)}
+				{articles ? (
+					articles.map((article) => <NewsCard {...article} />)
+				) : (
+					<div className="loader" />
+				)}
 			</div>
 		</div>
 	);

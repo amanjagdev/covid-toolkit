@@ -46,10 +46,7 @@ const Home = () => {
 									<NewsCard {...articles[1]} />
 								</>
 							) : (
-								<>
-									<NewsCard />
-									<NewsCard />
-								</>
+								<div className="loader" />
 							)}
 						</div>
 					</div>
@@ -94,54 +91,16 @@ const Home = () => {
 								</div>
 							</div>
 							<div className="description">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Aliquam fugit voluptates
-								veritatis tenetur dolorem. Deserunt adipisci
-								eius quis autem nam.
+								Just select the State and the district or
+								Pincode. It will readily show the list of the
+								slots available on a particular day and users
+								can see info from vaccine (Covishield/Covaxin),
+								minnimum age and more.
 							</div>
 						</div>
 					</div>
 				</div>
-				<div className="row">
-					<div className="guidelines bs">
-						<div className="head">
-							<div className="heading">Guidelines</div>
-							<div className="spacer" />
-						</div>
-						<div className="cards grid grid-1-1">
-							<div className="card">
-								<div className="title">Dont's</div>
-								<div className="lines">
-									<div className="line">
-										💠Lorem ipsum dolor sit amet
-										consectetur, adipisicing elit. Expedita,
-										consequuntur?
-									</div>
-									<div className="line">
-										💠Lorem ipsum dolor sit amet
-										consectetur, adipisicing elit. Expedita,
-										consequuntur?
-									</div>
-								</div>
-							</div>
-							<div className="card">
-								<div className="title">Do's</div>
-								<div className="lines">
-									<div className="line">
-										💠Lorem ipsum dolor sit amet
-										consectetur, adipisicing elit. Expedita,
-										consequuntur?
-									</div>
-									<div className="line">
-										💠Lorem ipsum dolor sit amet
-										consectetur, adipisicing elit. Expedita,
-										consequuntur?
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+
 				<div className="grid grid-1-1">
 					<div className="plasma bs">
 						<div className="head">
@@ -153,9 +112,9 @@ const Home = () => {
 							</div>
 						</div>
 						<div className="description">
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Aliquam fugit voluptates veritatis tenetur
-							dolorem. Deserunt adipisci eius quis autem nam.
+							Plasma has been instrumental in helping COVID-19
+							patients. Click here to get the plasma leads for
+							your respective cities.
 						</div>
 					</div>
 					<div className="resources bs">
@@ -168,9 +127,49 @@ const Home = () => {
 							</div>
 						</div>
 						<div className="description">
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Aliquam fugit voluptates veritatis tenetur
-							dolorem. Deserunt adipisci eius quis autem nam.
+							A comprehensive list of COVID resources across India
+							Disclaimer: Please use caution and perform due
+							diligence before using the resources listed on this
+							website.
+						</div>
+					</div>
+				</div>
+				<div className="row">
+					<div className="guidelines bs">
+						<div className="head">
+							<div className="heading">Guidelines</div>
+							<div className="spacer" />
+						</div>
+						<div className="cards grid grid-1-1">
+							<div className="card">
+								<div className="title">Do's</div>
+								<div className="lines">
+									<div className="line">
+										💠Regular hand wash for 30 seconds will
+										help you avoid germs or any kind of
+										infection.
+									</div>
+									<div className="line">
+										💠 Coronavirus usually spreads through
+										cough and covering your nose and mouth
+										will save you from this epidemic.
+									</div>
+								</div>
+							</div>
+							<div className="card">
+								<div className="title">Dont's</div>
+								<div className="lines">
+									<div className="line">
+										💠Do not get close to anyone, especially
+										touching or laughing closely.
+									</div>
+									<div className="line">
+										💠Do not touch your face, nose and mouth
+										often. This avoids the risks of
+										developing the virus.
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
